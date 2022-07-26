@@ -1,0 +1,163 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+
+struct Node{
+  int data;
+  struct Node *next;
+};
+void LinkedListTraversal(struct Node *ptr){
+	int len=0;
+	while(ptr!=NULL){
+	printf("\nItem %d",ptr->data);
+	len++;
+	ptr=ptr->next;
+	}
+	printf("\n\nlength of List is %d \n",len);
+}
+
+struct Node * InsertFromHead(struct Node *p,int data){
+	struct Node *newNode=(struct Node *)malloc(sizeof(struct Node));
+	newNode->data=data;
+	newNode->next=p;
+
+	return newNode;
+}
+struct Node * InsertInBetween(struct Node *head,int data,int index){
+	struct Node * newNode=(struct Node *)malloc(sizeof(struct Node));
+
+	struct Node * p=head;
+
+	int i=0;
+
+	while(i!=(index-1)){
+	p=p->next;
+	i++;
+	}
+	newNode->data=data;
+	//main thing happening here
+
+	newNode->next=p->next;
+	p->next=newNode;
+
+	return head;
+
+}
+struct Node * InsertFromTail(struct Node *head,int data){
+	struct Node * newNode=(struct Node *)malloc(sizeof(struct Node));
+	struct Node * p=head;
+
+	while(p->next!=NULL){
+		p=p->next;
+	}
+	newNode->data=data;
+	newNode->next=NULL;
+
+	p->next=newNode;
+
+	return head;
+}
+struct Node * DeleteFromHead(struct Node *head){
+	head=head->next;
+	return head;
+}
+struct Node * DeleteInBetween(struct Node *head,int index){
+	int i=0;
+	struct Node *p=head;
+
+	while(i!=index-1){
+	p=p->next;
+	i++;
+	}
+	p->next=p->next->next;
+
+	return head;
+}
+struct Node * DeleteFromTail(struct Node *head){
+	struct Node *p=head;
+	while(p->next->next!=NULL){
+	p=p->next;
+	}
+	p->next=NULL;
+
+	return head;
+}
+struct Node * UpdateInBetween(struct Node *head,int data,int index){
+	struct Node *p=head;
+	int i=0;
+	while(i!=index){
+	p=p->next;
+	i++;
+	}
+	p->data=data;
+
+	return head;
+
+
+}
+int getListLength(struct Node *ptr){
+	int listLen=0;
+	while(ptr!=NULL){
+	listLen++;
+	ptr=ptr->next;
+	}
+	return listLen;
+}
+
+
+void main(){
+	struct  Node * header;
+	struct Node *  second;
+	struct Node * third;
+	struct Node * inbetween;
+	clrscr();
+	header=(struct Node *)malloc(sizeof(struct Node));
+	second=(struct Node *)malloc(sizeof(struct Node));
+	third=(struct Node *)malloc(sizeof(struct Node));
+	inbetween=(struct Node *)malloc(sizeof(struct Node));
+
+	header->data=11;
+	header->next=second;
+
+	second->data=23;
+	second->next=third;
+
+	third->data=24;
+	third->next=NULL;
+
+
+	LinkedListTraversal(header);
+
+	//adding new node in between;
+	inbetween->data=39;
+	inbetween->next=third;
+	second->next=inbetween;
+
+	LinkedListTraversal(header);
+
+	header=InsertFromHead(header,54);
+	printf("\nInserting from Head\n");
+	LinkedListTraversal(header);
+
+	InsertInBetween(header,33,2);
+	printf("\nInserting in between at index 2 \n");
+	LinkedListTraversal(header);
+
+	InsertFromTail(header,78);
+	printf("\nInserting from Tail \n");
+	LinkedListTraversal(header);
+
+	DeleteInBetween(header,2);
+	printf("\nDeleting a node at index 2\n");
+	LinkedListTraversal(header);
+
+	header=DeleteFromTail(header);
+	printf("\nDelete from Tail\n");
+	LinkedListTraversal(header);
+
+	header=UpdateInBetween(header,45,2);
+	printf("\nUpdate node at 2nd Index \n");
+	LinkedListTraversal(header);
+	getch();
+
+}

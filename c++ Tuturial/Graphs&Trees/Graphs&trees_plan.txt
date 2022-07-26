@@ -1,0 +1,53 @@
+Graphs / Trees
+-Representation
+-Traversal
+-Algorithm
+
+Representation
+-Matrix(Not much of importance)
+-List
+    -Arrays of Vectors
+    -Vectors of Vectors
+
+Traversal(Important)
+-DFS
+-BFS
+
+-Algorithms
+ -Dijkstra
+ -Bellman-Ford
+ -Disjoint Set Union
+ -Minimum Spanning Trees
+ -Directed Acyclic Graphs
+ -topological Sort
+
+/-------Trees /Graphs Terminologies----/
+-Vertices/Edges
+-Undirected /Directed Components
+-Strongly Connected Components
+-Height & Depth in a Tree
+-Root/Child/Parents/Leaf Nodes in a tree.
+
+
+*Tree is a Graph which does not have any cylce in it(Loop).
+
+Directed Acyclic graph example
+
+    1
+   / \
+   V  V
+   2  3
+   | /|
+   || |
+   VV V
+    4 5
+*strongly connected Graph
+from each you should be able to go every other vertex of the graph.
+Collection of all the Connected components of the graph is called as FOREST.
+
+Depth => kisi bhi node ka distance root node se usko apan bolte hai depth of that node.
+Height => kisi bhi node se agr hum kisi bhi dusri node pr agr hum jaae toh us beech jitni bhi edges aati usk apan height bolte hai source ot destnation(Logest possible path).=>We cannot take curve
+
+Lowest Common Ancestor (LCA)=>  Common parent of two or more than two nodes is called Lowest Common Ancestor.
+
+
