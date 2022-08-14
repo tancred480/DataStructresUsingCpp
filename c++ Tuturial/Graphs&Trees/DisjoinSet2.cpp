@@ -1,7 +1,7 @@
 #include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
-const int N = 1e9 + 7;
+const int N = 1e5;
 int parent[N];
 void make(int v)
 {
@@ -24,6 +24,31 @@ void Union(int a, int b)
 
 int main()
 {
-
+    int n, e;
+    cin >> n >> e;
+    vector<vector<int>> res;
+    for (int i = 0; i <= n; i++)
+        make(i);
+    for (int i = 0; i < e; i++)
+    {
+        int u, v;
+        cin >> u >> v;
+        vector<int> temp;
+        for (int i = 0; i <= n; i++)
+            temp.push_back(parent[i]);
+        res.push_back(temp);
+        Union(u, v);
+    }
+    for (auto &arr : res)
+    {
+        for (auto &el : arr)
+        {
+            cout << el << " ";
+        }
+        cout << endl;
+    }
+    cout << endl;
+    for (int i = 0; i <= n; i++)
+        cout << i << " ";
     return 0;
 }

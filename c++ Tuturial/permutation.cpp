@@ -68,7 +68,7 @@ void permutation2(int ind, vector<int> nums)
 step 1. a[i]<a[i+1] find the index where a[i]<a[i+1]; indx1
 step 2. find the first index from backside where a[i]>a[indx1] ; indx2
 step 3. swap(a[indx1] with a[indx2]);
-step 4. reverse the array from index (indx+1 to n-1);
+step 4. reverse the array from index (indx1 + 1 to n-1);
 */
 void nextPermutation(vector<int> nums)
 {
