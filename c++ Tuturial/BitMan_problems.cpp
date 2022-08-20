@@ -85,6 +85,18 @@ uint32_t reverseBit(uint32_t n)
     }
     return result;
 }
+// bitwise addition of two numbers
+int getSum(int a, int b)
+{
+    unsigned int carry;
+    while (b)
+    {
+        carry = a & b;
+        a = a ^ b;
+        b = carry << 1;
+    }
+    return a;
+}
 /*
 Write a program to find a uniue number in an array
 where all numbers except one, are present twice.

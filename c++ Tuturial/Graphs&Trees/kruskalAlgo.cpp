@@ -34,12 +34,14 @@ void Union(int a, int b)
 int main()
 {
     int n, m;
+    cout << "Enter no. of nodes and edges:";
     cin >> n >> m;
     vector<pair<int, pair<int, int>>> edges;
+    cout << "\nEnter all edges with weight and u and v edge:\n";
     for (int i = 0; i < m; i++)
     {
         int u, v, wt;
-        cin >> u >> v >> wt;
+        cin >> wt >> u >> v;
         edges.push_back({wt, {u, v}});
     }
     sort(edges.begin(), edges.end());
@@ -49,6 +51,7 @@ int main()
         make(i);
     }
     int totalCost = 0;
+    cout << "\nMST edges:\n";
     for (auto &edge : edges)
     {
         int wt = edge.first;
@@ -59,6 +62,7 @@ int main()
         totalCost += wt;
         cout << u << " " << v << endl;
     }
+
     cout << "Total Cost :" << totalCost << endl;
     return 0;
 }
